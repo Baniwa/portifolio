@@ -80,7 +80,7 @@ export default function Hero() {
               icon: LinkedinIcon,
               label: "LinkedIn",
             },
-            { href: "mailto:baniwa.cmd@gmail.com", icon: Mail, label: "Email" },
+            { href: "https://mail.google.com/mail/?view=cm&fs=1&to=baniwa.cmd@gmail.com&su=Remote%20Opportunity", icon: Mail, label: "Email" },
           ].map(({ href, icon: Icon, label }) => (
             <a
               key={label}

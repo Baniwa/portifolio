@@ -21,6 +21,14 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      document.getElementById(href.slice(1))?.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false);
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -41,6 +49,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
+              onClick={(e) => scrollTo(e, link.href)}
               className="text-slate-400 hover:text-violet-400 transition-colors text-sm font-medium"
             >
               {link.label}
@@ -50,6 +59,7 @@ export default function Header() {
 
         <a
           href="#contact"
+          onClick={(e) => scrollTo(e, "#contact")}
           className="hidden md:inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-500 text-white px-5 py-2 rounded-lg text-sm font-medium transition-colors"
         >
           Hire Me
@@ -71,16 +81,16 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => scrollTo(e, link.href)}
                 className="text-slate-400 hover:text-violet-400 transition-colors text-sm font-medium"
-                onClick={() => setMenuOpen(false)}
               >
                 {link.label}
               </a>
             ))}
             <a
               href="#contact"
+              onClick={(e) => scrollTo(e, "#contact")}
               className="inline-flex items-center justify-center bg-violet-600 hover:bg-violet-500 text-white px-5 py-2 rounded-lg text-sm font-medium transition-colors mt-2"
-              onClick={() => setMenuOpen(false)}
             >
               Hire Me
             </a>
