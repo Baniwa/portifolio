@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 text-center max-w-4xl mx-auto">
+      <div className="relative z-10 text-center max-w-4xl mx-auto pt-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,16 +99,21 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="grid grid-cols-3 gap-6 max-w-xs mx-auto"
+          className="flex items-center justify-center gap-0 max-w-sm mx-auto"
         >
           {[
             { value: "3+", label: "Years in IT" },
             { value: "USD/EUR", label: "Open to" },
             { value: "UTC-3", label: "Timezone" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-white font-semibold text-lg">{stat.value}</div>
-              <div className="text-slate-600 text-xs mt-0.5">{stat.label}</div>
+          ].map((stat, i) => (
+            <div key={stat.label} className="flex items-center">
+              {i > 0 && (
+                <div className="w-px h-8 bg-slate-800 mx-6" />
+              )}
+              <div className="text-center">
+                <div className="text-white font-semibold text-lg">{stat.value}</div>
+                <div className="text-slate-600 text-xs mt-0.5">{stat.label}</div>
+              </div>
             </div>
           ))}
         </motion.div>
