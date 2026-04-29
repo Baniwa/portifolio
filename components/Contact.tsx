@@ -121,7 +121,9 @@ export default function Contact() {
                 email.
               </p>
               <a
-                href="mailto:baniwa.cmd@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=baniwa.cmd@gmail.com&su=Remote%20Opportunity"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-500 text-white px-6 py-3 rounded-xl font-medium transition-all hover:shadow-lg hover:shadow-violet-500/25 w-full justify-center"
               >
                 <Mail size={16} />
